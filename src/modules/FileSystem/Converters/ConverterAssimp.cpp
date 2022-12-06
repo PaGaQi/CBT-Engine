@@ -52,6 +52,8 @@ void TraverseAiNodes(const aiScene* scene, const char* parent_path, const aiNode
 	const uint64_t eid = get->id;
 	for (int i = 0; i < node->mNumChildren; ++i)
 		TraverseAiNodes(scene, parent_path, node->mChildren[i], get);
+
+	ctrans->PropagateChanges();
 }
 
 void ConvertAssimpScene(const TempIfStream& file) {
