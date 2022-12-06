@@ -45,6 +45,9 @@ bool ModuleFS::Init()
 	ilInit();
 	iluInit();
 
+	//Loading Street Environment Scene
+	//TryLoadFromDisk("Assets/street/Street environment_V01.FBX");
+
 	return true;
 }
 
@@ -95,5 +98,8 @@ std::vector<WatchedData> TryLoadFromDisk(const char* path, const char* parent_pa
 
 	TryConvert(file, path);
 		
+	if (file.GetData().size == 0)
+		TryLoad_WithParentPath(path, parent_path, file);
+
 	return ret;
 }
