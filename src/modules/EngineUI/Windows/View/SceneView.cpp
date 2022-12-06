@@ -37,7 +37,7 @@ void SceneView::Update() {
 	//if (ImGui::Button("Stop", ImVec2(50, 20)));
 	//if (ImGui::IsItemHovered())ImGui::SetTooltip("Stop");
 
-	ImGui::End();
+	
 }
 
 
