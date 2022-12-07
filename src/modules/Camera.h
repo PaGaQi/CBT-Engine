@@ -19,20 +19,19 @@ public:
 	void Move(const vec3& Mov);
 	float* GetViewMatrix();
 
-
-
 	Frustum frustum;
 
-private:
+	float3 bb_frustum[8];
 
+private:
 	void CalculateViewMatrix();
 
-public:
+	void SetAspectRatio();
 
+public:
 	vec3 X, Y, Z, Position, Reference;
 
 private:
-
 	mat4x4 ViewMatrix, ViewMatrixInverse;
 	LineSegment picking = LineSegment(vec::zero, vec::zero);
 };
