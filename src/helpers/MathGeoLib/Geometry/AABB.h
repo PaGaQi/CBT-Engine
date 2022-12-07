@@ -40,6 +40,7 @@ class ALIGN16 AABB
 {
 public:
 
+	void Draw();
 	/// Specifies the minimum extent of this AABB in the world space x, y and z axes.
 	vec minPoint;
 	/// Specifies the maximum extent of this AABB in the world space x, y and z axes. [similarOverload: minPoint]

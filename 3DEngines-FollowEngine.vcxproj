@@ -110,6 +110,7 @@
     <ClInclude Include="src\helpers\MathGeoLib\Geometry\Capsule.h" />
     <ClInclude Include="src\helpers\MathGeoLib\Geometry\Circle.h" />
     <ClInclude Include="src\helpers\MathGeoLib\Geometry\Circle2D.h" />
+    <ClInclude Include="src\helpers\MathGeoLib\Geometry\C_AABB.h" />
     <ClInclude Include="src\helpers\MathGeoLib\Geometry\Frustum.h" />
     <ClInclude Include="src\helpers\MathGeoLib\Geometry\GeometryAll.h" />
     <ClInclude Include="src\helpers\MathGeoLib\Geometry\GeomType.h" />

@@ -233,6 +233,7 @@
     <ClInclude Include="src\modules\FileSystem\Converters.h" />
     <ClInclude Include="src\modules\EngineUI\Windows\About\About.h" />
     <ClInclude Include="src\modules\Camera.h" />
+    <ClInclude Include="src\helpers\MathGeoLib\Geometry\C_AABB.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\helpers\MathGeoLib\Geometry\KDTree.inl" />
