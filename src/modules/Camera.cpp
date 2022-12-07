@@ -1,7 +1,7 @@
 #include <src/helpers/Globals.h>
 #include <src/Application.h>
 #include "Camera.h"
-#include <imgui.h>
+#include "../modules/EngineUI/DearImGUI/imgui.h"
 
 
 Camera::Camera(bool start_enabled) : Module("renderer")
