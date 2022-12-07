@@ -16,6 +16,10 @@ CBT engine is a 3D Game Engine developed for Game Engines subject. The use of th
 - R to go up
 - Left Shift to speed up
 
+-Press the "Start" button to start the game camera
+-Press the "Pause" button to pause the game
+-Press the "Stop" button to stop the game camera, and to begin the editor camera
+
 # Known Bugs:
 - Deleting some entities may cause the application to crash. It is unknown why this happens, because it doesn't happen always and can't always be triggered to occur.
 
