@@ -1,46 +1,99 @@
 ﻿#include "SceneView.h"
 #include <src/Application.h>
 #include <glew/include/GL/glew.h>
+#include <src/modules/Render/ModuleRenderer3D.h>
 
-void SceneView::Start() {
+void SceneView::Start()
+{
 	fb.Create(App->window->w, App->window->h);
 	App->renderer3D->hijack_framebuffer = &fb;
 }
 
-void SceneView::Update() {
-	ImGui::Begin(name.c_str(), &active);
+void SceneView::Update()
+{
+	extern const std::filesystem::path g_AssetPath;
+
+
 	ImVec2 scenesize = { (float)fb.attachment.w, (float)fb.attachment.h };
 	float ww = ImGui::GetContentRegionAvail().x;
-	scenesize.y /= fb.attachment.w / ww;
+	float hh = ImGui::GetContentRegionAvail().y;
+	scenesize.y = hh;
 	scenesize.x = ww;
-	ImGui::Image((ImTextureID)fb.attachment.img_id, scenesize, { 0,1 }, { 1,0 });
+
+
+
+	// Game view
+	ImGui::Begin("Game", &active);
+	if (engineView == Game)
+	{
+		App->renderer3D->cam = App->renderer3D->GAMEPLAY;
+		ImGui::Image((ImTextureID)fb.attachment.img_id, scenesize, { 0,1 }, { 1,0 });
+	}
+
 	ImGui::End();
 
-	//ImGui::Begin("Simulation State Controller", nullptr, ImGuiWindowFlags_None);
+	// Edito view
+	ImGui::Begin(name.c_str(), &active);
+	if (engineView == Scene)
+	{
 
-	//ImGui::SetCursorPos(ImVec2(scenesize.x / 2 - 60, 28));
-	////Start
-	//if (ImGui::Button("Start", ImVec2(50, 20)));
-	//if (ImGui::IsItemHovered()) ImGui::SetTooltip("Start");
-	//
+		ImGui::Image((ImTextureID)fb.attachment.img_id, scenesize, { 0,1 }, { 1,0 });
+	}
 
-	//ImGui::SameLine();
+	if (ImGui::BeginDragDropTarget())
+	{
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("CONTENT_BROWSER_ITEM"))
+		{
+			const wchar_t* path = (const wchar_t*)payload->Data;
+			// TryLoadFromDisk(g_AssetPath);
+		}
+		ImGui::EndDragDropTarget();
+	}
 
-	////Pause
-	//if (ImGui::Button("Pause", ImVec2(50, 20)));
-	//if (ImGui::IsItemHovered()) ImGui::SetTooltip("Pause");
-	//
+	ImGui::End();
 
-	//ImGui::SameLine();
+	// Action controls
+	ImGui::Begin("Action Controls", nullptr, ImGuiWindowFlags_NoScrollWithMouse | ImGuiWindowFlags_NoScrollbar);
 
-	////Stop
-	//if (ImGui::Button("Stop", ImVec2(50, 20)));
-	//if (ImGui::IsItemHovered())ImGui::SetTooltip("Stop");
-	//ImGui::End();
-	
+	ImGui::SetCursorPos(ImVec2(scenesize.x / 2 - 68, 28));
+	// Start
+	if (ImGui::Button("Start", ImVec2(50, 20)))
+	{
+		engineView = Game;
+	}
+	if (ImGui::IsItemHovered()) {
+		ImGui::SetTooltip("Start the action");
+	}
+
+	ImGui::SameLine();
+
+	// Pause
+	if (ImGui::Button("Pause", ImVec2(50, 20)))
+	{
+
+	}
+	if (ImGui::IsItemHovered()) {
+		ImGui::SetTooltip("Pause the action");
+	}
+
+	ImGui::SameLine();
+
+	// Stop
+	if (ImGui::Button("Stop", ImVec2(50, 20)))
+	{
+		App->renderer3D->cam = App->renderer3D->SCENE;
+		engineView = Scene;
+
+	}
+	if (ImGui::IsItemHovered())
+	{
+		ImGui::SetTooltip("Stop the action");
+	}
+
+	ImGui::End();
 }
 
-
-void SceneView::CleanUp() {
+void SceneView::CleanUp()
+{
 	fb.Destroy();
 }

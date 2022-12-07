@@ -11,4 +11,12 @@ public:
 	void Update();
 
 	void CleanUp();
+
+public:
+	enum View
+	{
+		Scene,
+		Game,
+	};
+	View engineView = Game;
 };
