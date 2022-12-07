@@ -59,6 +59,7 @@
     <ClCompile Include="src\helpers\MathGeoLib\Time\Clock.cpp" />
     <ClCompile Include="src\helpers\pcg\pcg_basic.c" />
     <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\modules\Camera.cpp" />
     <ClCompile Include="src\modules\ECS\ComponentsMove\CTransform.cpp" />
     <ClCompile Include="src\modules\ECS\ComponentsRender\C_MeshRenderer.cpp" />
     <ClCompile Include="src\modules\ECS\ModuleECS.cpp" />
@@ -178,6 +179,7 @@
     <ClInclude Include="src\helpers\pcg\pcg_basic.h" />
     <ClInclude Include="src\helpers\Timer\sque_timer.h" />
     <ClInclude Include="src\helpers\Timer\tscns.h" />
+    <ClInclude Include="src\modules\Camera.h" />
     <ClInclude Include="src\modules\ECS\ComponentIncludeAllTypes.h" />
     <ClInclude Include="src\modules\ECS\ComponentsIncludeAll.h" />
     <ClInclude Include="src\modules\ECS\ComponentsMove\CS_Transform.h" />
