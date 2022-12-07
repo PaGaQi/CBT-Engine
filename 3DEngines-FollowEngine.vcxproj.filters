@@ -105,6 +105,7 @@
     <ClCompile Include="src\modules\ECS\ComponentsMove\CTransform.cpp" />
     <ClCompile Include="src\modules\FileSystem\Converters.cpp" />
     <ClCompile Include="src\modules\FileSystem\ModuleFS.cpp" />
+    <ClCompile Include="src\modules\EngineUI\Windows\About\About.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Application.h" />
@@ -229,6 +230,7 @@
     <ClInclude Include="src\modules\EngineUI\Windows\Entities\EntityHierachy.h" />
     <ClInclude Include="src\modules\EngineUI\Windows\Inspector\ComponentInspector.h" />
     <ClInclude Include="src\modules\FileSystem\Converters.h" />
+    <ClInclude Include="src\modules\EngineUI\Windows\About\About.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\helpers\MathGeoLib\Geometry\KDTree.inl" />

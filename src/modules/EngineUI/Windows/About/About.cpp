@@ -1,5 +1,5 @@
 #include "About.h"
-#include <sr>
+#include <src/Application.h>
 
 void About::UpdateRMMenu() {
 	rm_menu.CheckToOpen();
@@ -7,9 +7,9 @@ void About::UpdateRMMenu() {
 
 void About::Update() 
 {
-    CBT::SysInfo& info = CBT::Application::Get().GetSystemInfo();
+    SysInfo& info = Application::Get().GetSystemInfo();
 
-    ImGui::Begin(name, &active);
+    ImGui::Begin("CBTEngine", &active);
     ImGui::BulletText("CBT Engine");
     ImGui::Separator();
 

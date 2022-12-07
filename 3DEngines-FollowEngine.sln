@@ -5,12 +5,6 @@ VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CBTEngine", "3DEngines-FollowEngine.vcxproj", "{746CC4C3-787F-4B0E-AA66-E388FE3FF4F6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9701EF46-524C-4C12-932D-5DBECBCADC5D}"
-	ProjectSection(SolutionItems) = preProject
-		src\modules\EngineUI\Windows\About\About.cpp = src\modules\EngineUI\Windows\About\About.cpp
-		src\modules\EngineUI\Windows\About\About.h = src\modules\EngineUI\Windows\About\About.h
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32

@@ -53,11 +53,11 @@ void MenuBar::Update()
     {
         if (ImGui::MenuItem("Download Latest"))
         {
-            Application::Get().GetUrl("https://github.com/JedTyde/CBT-Engine/releases");
+            Application::Get().GetUrl("https://github.com/PaGaQi/CBT-Engine/releases");
         }
 
-        if (ImGui::MenuItem("Got an issue?"))
-            Application::Get().GetUrl("https://github.com/JedTyde/CBT-Engine/issues");
+        if (ImGui::MenuItem("Want info?"))
+            Application::Get().GetUrl("https://github.com/PaGaQi/CBT-Engine/wiki");
 
         /*if (ImGui::MenuItem("About", "", m_About->active))
             m_About->SwitchActive();*/

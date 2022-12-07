@@ -14,6 +14,13 @@
 #include<list>
 #include<vector>
 
+struct SysInfo
+{
+	SysInfo() = default;
+
+	char glfwVer[32];
+};
+
 class Application
 {
 public:
@@ -35,6 +42,7 @@ public:
 	Application();
 	~Application();
 	inline static Application& Get() { return *s_Instance; }
+	inline SysInfo& GetSystemInfo() { return m_SysInfo; }
 	void GetUrl(const char* url);
 
 	bool Init();
@@ -50,6 +58,7 @@ private:
 	void PrepareUpdate();
 	void FinishUpdate();
 	static Application* s_Instance;
+	SysInfo m_SysInfo;
 };
 
 extern Application* App;
