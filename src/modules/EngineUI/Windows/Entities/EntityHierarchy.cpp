@@ -34,31 +34,36 @@ void EntityHierarchyWindow::UpdateRMMenu() {
 static ImGuiTreeNodeFlags node_flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_SpanFullWidth;
 
 void EntityHierarchyWindow::UpdateEntry(Entity* curr_e) {
-    bool isselected = IsSelected(curr_e->id);
-    ImGuiTreeNodeFlags tmp_flags = node_flags
-        | ((curr_e->children.size() == 0) * ImGuiTreeNodeFlags_Leaf)
-        | (isselected * ImGuiTreeNodeFlags_Selected);
+    if (curr_e != NULL)
+    {
 
-    bool open = ImGui::TreeNodeEx(&curr_e->id, tmp_flags, curr_e->name);
-    if (ImGui::IsItemClicked()) {
-        if (!CheckModifiers()) 
-            selected.clear();
-        selected.push_back(curr_e->id);
-        if (inspector != nullptr) {
-            if (selected.back() == App->ecs->root.id) {
-                inspector->entity = &App->ecs->root;
+
+        bool isselected = IsSelected(curr_e->id);
+        ImGuiTreeNodeFlags tmp_flags = node_flags
+            | ((curr_e->children.size() == 0) * ImGuiTreeNodeFlags_Leaf)
+            | (isselected * ImGuiTreeNodeFlags_Selected);
+
+        bool open = ImGui::TreeNodeEx(&curr_e->id, tmp_flags, curr_e->name);
+        if (ImGui::IsItemClicked()) {
+            if (!CheckModifiers())
+                selected.clear();
+            selected.push_back(curr_e->id);
+            if (inspector != nullptr) {
+                if (selected.back() == App->ecs->root.id) {
+                    inspector->entity = &App->ecs->root;
+                }
+                else {
+                    inspector->entity = App->ecs->GetEntity(selected.back());
+                }
+
             }
-            else {
-                inspector->entity = App->ecs->GetEntity(selected.back());
-            }
-            
         }
+
+        for (int i = 0; open && i < curr_e->children.size(); ++i)
+            UpdateEntry(curr_e->children[i]);
+
+        if (open) ImGui::TreePop();
     }
-
-    for (int i = 0; open && i < curr_e->children.size(); ++i)
-        UpdateEntry(curr_e->children[i]);
-
-    if (open) ImGui::TreePop();
 }
 
 void EntityHierarchyWindow::Update() {

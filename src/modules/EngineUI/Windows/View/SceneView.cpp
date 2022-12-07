@@ -1,4 +1,4 @@
-#include "SceneView.h"
+﻿#include "SceneView.h"
 #include <src/Application.h>
 #include <glew/include/GL/glew.h>
 
@@ -36,7 +36,7 @@ void SceneView::Update() {
 	////Stop
 	//if (ImGui::Button("Stop", ImVec2(50, 20)));
 	//if (ImGui::IsItemHovered())ImGui::SetTooltip("Stop");
-
+	//ImGui::End();
 	
 }
 
