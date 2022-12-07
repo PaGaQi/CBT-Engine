@@ -1,5 +1,7 @@
 #include <src/Application.h>
 
+Application* Application::s_Instance = nullptr;
+
 Application::Application()
 {
 	InitTimer();
@@ -152,4 +154,9 @@ void Application::Load(JSON_Object* root_node)
 void Application::AddModule(Module* mod)
 {
 	list_modules.push_back(mod);
+}
+
+void Application::GetUrl(const char* url)
+{
+	ShellExecuteA(0, "open", url, NULL, NULL, SW_SHOWNORMAL);
 }

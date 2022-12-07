@@ -1,4 +1,5 @@
 #include "MenuBar.h"
+#include <src/Application.h>
 
 void MenuBar::Init()
 {
@@ -48,6 +49,21 @@ void MenuBar::Update()
         ImGui::EndMenu();
     }
 
+    if (ImGui::BeginMenu("Help"))
+    {
+        if (ImGui::MenuItem("Download Latest"))
+        {
+            Application::Get().GetUrl("https://github.com/JedTyde/CBT-Engine/releases");
+        }
+
+        if (ImGui::MenuItem("Got an issue?"))
+            Application::Get().GetUrl("https://github.com/JedTyde/CBT-Engine/issues");
+
+        /*if (ImGui::MenuItem("About", "", m_About->active))
+            m_About->SwitchActive();*/
+
+        ImGui::EndMenu();
+    }
     ImGui::EndMainMenuBar();
 }
 

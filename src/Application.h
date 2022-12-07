@@ -34,6 +34,8 @@ public:
 
 	Application();
 	~Application();
+	inline static Application& Get() { return *s_Instance; }
+	void GetUrl(const char* url);
 
 	bool Init();
 
@@ -47,6 +49,7 @@ private:
 	void AddModule(Module* mod);
 	void PrepareUpdate();
 	void FinishUpdate();
+	static Application* s_Instance;
 };
 
 extern Application* App;
