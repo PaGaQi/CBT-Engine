@@ -24,8 +24,11 @@ CBT engine is a 3D Game Engine developed for Game Engines subject. The use of th
 - Deleting some entities may cause the application to crash. It is unknown why this happens, because it doesn't happen always and can't always be triggered to occur.
 
 # Repository
-
+Old Repository:
 <a href="https://github.com/JedTyde/CBT-Engine">CBT-Engine</a>
+
+New Repository:
+<a href="https://github.com/PaGaQi/CBT-Engine">CBT-Engine</a>
 
 # MIT License
 Copyright (c) 2022 JedTyde & PaGaQi
