@@ -6,3 +6,4 @@
 #include "View/SceneView.h"
 #include "Entities/EntityHierachy.h"
 #include "Inspector/ComponentInspector.h"
+#include "About/About.h"
