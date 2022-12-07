@@ -1,54 +1,33 @@
-# Motors3D-Follow
- Week by week followup
+# CBT-Engine
 
-~~~c++
+# About:
+CBT engine is a 3D Game Engine developed for Game Engines subject. The use of this engine is to be used as a universal engine for all kind of games. This engine was forked from a project by our teacher, Marc Torres.
 
-#include <stdint.h>
-#include <bit>
-#include <stdlib.h>
-#include <assert.h>
-#include <algorithm>
-#include <stdio.h>
+# Developers
 
-uint32_t ToBits(float f) { return std::bit_cast<uint32_t>(f); }
-float FromBits(uint32_t bits) {return std::bit_cast<float>(bits);}
+- <a href="https://github.com/JedTyde">Jose Antonio Atencia</a>
+- <a href="https://github.com/PaGaQi">Pau Garcia i Quiroga</a>
 
-void printbits(uint32_t bits) {
-    printf("Sign: %i\n", bits >> 31 & 1);
-    printf("Exponent: ");
-    for(int i = 30; i > 30-8; --i)
-        printf("%i", bits >> i & 1);
-    printf("\n");
+# Controls:
 
-    printf("Significand: ");
-    for(int i = 30 - 8; i > -1; --i)
-        printf("%i", bits >> i & 1);
-    printf("\n");
-    printf("\n");
-}
+- Right click to look around
+- WASD to move
+- F to go down
+- R to go up
+- Left Shift to speed up
 
-uint32_t PrintFloatBits(float a) {
-    printf("\n");
-    printf("\n");
-    printf("Printing float: %f", a);
-    printf("\n");
-    uint32_t bits = ToBits(a);
-    printbits(bits);
+# Known Bugs:
+- Deleting some entities may cause the application to crash. It is unknown why this happens, because it doesn't happen always and can't always be triggered to occur.
 
-    return bits;
-}
+# Repository
 
-#define TGL_FLAG(n, f) ((n) ^= (f))
+<a href="https://github.com/JedTyde/CBT-Engine">CBT-Engine</a>
 
-int main() {
-    float a = 0.5;
-    uint32_t bits = PrintFloatBits(a);
-    
-    for(int i = 30; i > 30-8; -i)
-        TGL_FLAG(bits, 1 << i);
-    printbits(bits);
-    printf("%f", FromBits(bits));
+# MIT License
+Copyright (c) 2022 JedTyde & PaGaQi
 
-    return 0;
-}
-```
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
