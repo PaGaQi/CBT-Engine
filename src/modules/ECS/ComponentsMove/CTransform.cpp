@@ -67,7 +67,25 @@ void C_Transform::DrawInspector() {
 
 			local_mat = float4x4::FromTRS(prev_pos, prev_quat, prev_scale);
 
+
+
 			PropagateChanges();
 		}
+
+		ImGui::Begin("Camera Controls");
+		//
+		//ImGui::DragFloat3("Position", newposition.ptr());
+		ImGui::DragFloat3("Position", newPosition.ptr());
+		//
+		//ImGui::DragFloat3("Rotation", newposition.ptr());
+		ImGui::DragFloat3("Look to", newRotation.ptr());
+		//
+		if (ImGui::Button("Change", ImVec2(50, 20)))
+		{
+			//App->GameCam->LookAt(vec3(newRotation.x, newRotation.y, newRotation.z));
+			App->cam2->LookAt(vec3(newRotation.x, newRotation.y, newRotation.z));
+			App->cam2->ChangePosition(vec3(newPosition.x, newPosition.y, newPosition.z));
+		}
+		ImGui::End();
 	}
 }

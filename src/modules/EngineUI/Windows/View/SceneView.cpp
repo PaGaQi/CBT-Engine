@@ -7,6 +7,8 @@ void SceneView::Start()
 {
 	fb.Create(App->window->w, App->window->h);
 	App->renderer3D->hijack_framebuffer = &fb;
+	App->cam2->Position = vec3(-30, 20, 0);
+	App->cam2->LookAt(vec3(0, 0, 0));
 }
 
 void SceneView::Update()
@@ -24,8 +26,7 @@ void SceneView::Update()
 		float hh = ImGui::GetContentRegionAvail().y;
 		scenesize.y = hh;
 		scenesize.x = ww;
-		App->cam2->Position = vec3(-30, 20, 0);
-		App->cam2->LookAt(vec3(0, 0, 0));
+		
 		App->renderer3D->cam = App->renderer3D->GAMEPLAY;
 		ImGui::Image((ImTextureID)fb.attachment.img_id, scenesize, { 0,1 }, { 1,0 });
 	}

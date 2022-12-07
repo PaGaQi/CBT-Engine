@@ -117,3 +117,10 @@ void Camera::SetAspectRatio()
 	frustum.horizontalFov = 2.f * atanf(tanf(frustum.verticalFov * 0.5f) * aspect_ratio);
 	frustum.SetPerspective(frustum.horizontalFov, frustum.verticalFov);
 }
+
+void Camera::ChangePosition(const vec3& pos)
+{
+	Position.x = pos.x;
+	Position.y = pos.y;
+	Position.z = pos.z;
+}

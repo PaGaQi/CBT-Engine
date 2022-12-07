@@ -11,6 +11,9 @@ struct C_Transform : public Component {
 	bool is_static = false;
 	float4x4 world_mat = float4x4::identity;
 	float4x4 local_mat = float4x4::identity;
+
+	float3 newPosition = { 0,0,0 };
+	float3 newRotation = { 0,0,0 };
 	
 	bool valid_tree = false;
 
